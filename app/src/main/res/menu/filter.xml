@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.MainActivity">
+
+    <item
+        android:id="@+id/filter_by_room"
+        android:icon="@drawable/ic_baseline_meeting_room_24"
+        android:orderInCategory="101"
+        android:title="Filtrer par salle"
+        app:showAsAction="never"
+        android:onClick="roomFilter"/>
+
+    <item
+        android:id="@+id/filter_by_date"
+        android:icon="@drawable/ic_baseline_date_range_24"
+        android:orderInCategory="101"
+        android:title="Filtrer par date"
+        app:showAsAction="never"
+        android:onClick="dateFilter"/>
+
+    <item
+        android:id="@+id/filter_reset"
+        android:orderInCategory="101"
+        android:title="Aucun filtre"
+        app:showAsAction="never"
+        android:onClick="noFilter"/>
+</menu>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Maréu</string>
+
+    <string-array name="room_array">
+        <item>Salle</item>
+        <item>Salle UN</item>
+        <item>Salle DEUX</item>
+        <item>Salle TROIS</item>
+        <item>Salle QUATRE</item>
+        <item>Salle CINQ</item>
+        <item>Salle SIX</item>
+        <item>Salle SEPT</item>
+        <item>Salle HUIT</item>
+        <item>Salle NEUF</item>
+        <item>Salle DIX</item>
+    </string-array>
+</resources>
