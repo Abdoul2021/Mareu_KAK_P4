@@ -12,7 +12,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static com.Lamzone.mareu.RecyclerViewItemCountAssertion.withItemCount;
 
-import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -21,7 +20,6 @@ import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.Lamzone.mareu.ui.MainActivity;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -58,7 +56,7 @@ public class MeetingInstrumentedTest {
      * We ensure that our recyclerview is displaying at least on item
      */
     @Test
-    public void MeetingList_ShouldNotBeEmpty() {
+    public void myMeetingList_ShouldNotBeEmpty() {
         onView(withId(R.id.recyclerview)).check(matches(hasMinimumChildCount(1)));
     }
 
@@ -66,7 +64,7 @@ public class MeetingInstrumentedTest {
      * When we click on an item, the details screen is launched
      */
     @Test
-    public void MeetingDetailsActivity_isLaunchedWhenWeClickOnAnItem() {
+    public void myMeetingDetailsActivity_isLaunchedWhenWeClickOnAnItem() {
         // When perform a click on an item
         onView(withId(R.id.recyclerview)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         // Then : MeetingDetailsActivity is launched
@@ -92,7 +90,7 @@ public class MeetingInstrumentedTest {
      * When we add an item, the item is shown
      */
     @Test
-    public void myMeetingList_shouldAddItem() {
+    public void checkIfAddMeetingIsRunning() {
         onView(withId(R.id.add_meeting_activity)).perform(click());
         onView(withId(R.id.meeting_color)).perform(click());
         onView(withId(R.id.meeting_room)).perform(click());
@@ -101,15 +99,14 @@ public class MeetingInstrumentedTest {
         onView(withId(R.id.date_btn)).perform(click());
         onView(withId(R.id.meeting_date)).perform();
         onView(withText("OK")).perform(click());
-        onView(withId(R.id.start_time_btn)).check(matches(isDisplayed()));
+        onView(withId(R.id.start_time_btn)).perform(click());
         onView(withId(R.id.meeting_start_time)).perform();
         onView(withText("OK")).perform(click());
         onView(withId(R.id.end_time_btn)).perform(click());
         onView(withId(R.id.meeting_end_time)).perform();
         onView(withText("OK")).perform(click());
-        onView(withId(R.id.meeting_guests)).perform(typeText("zip@gmail.com ; zap@live.fr ; zia@gmail.com ; "));
+        onView(withId(R.id.meeting_guests)).perform(typeText("zip@gmail.com ; zap@live.fr"));
         onView(withId(R.id.meeting_add_button)).check(matches(isDisplayed()));
-
     }
 
     @Test
