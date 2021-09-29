@@ -75,4 +75,5 @@ public class ExampleUnitTest {
         service.createMeeting(mareu_date);
         assertTrue(service.getMeetingByDate(mareu_date.getDate()).contains(mareu_date));
     }
+
 }

@@ -71,7 +71,6 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.ViewHold
         holder.mStartTime.setText("De " + meeting.getStartTime());
         holder.mEndTime.setText("à " + meeting.getEndTime());
         holder.mGuests.setText(meeting.getGuests());
-        //holder.mDeleteButton.setOnClickListener(v -> EventBus.getDefault().post(new DeleteMeeting(meeting)));
         holder.mDeleteButton.setOnClickListener(v -> {
             Meetings.remove(meeting);
             apiService.deleteMeeting(meeting);
@@ -99,8 +98,7 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.ViewHold
         @BindView(R.id.end_time)  public TextView mEndTime;
         @BindView(R.id.guests) public TextView mGuests;
         @BindView(R.id.delete_button)  public ImageButton mDeleteButton;
-        @BindView(R.id.meeting_list_item_layout)
-        ConstraintLayout mMeetingListItem;
+        @BindView(R.id.meeting_list_item_layout) ConstraintLayout mMeetingListItem;
 
         public ViewHolder(@NonNull View view) {
             super(view);

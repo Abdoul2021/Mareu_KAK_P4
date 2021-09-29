@@ -36,38 +36,33 @@ import butterknife.OnClick;
 
 public class AddMeetingActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
-    @BindView(R.id.meeting_return_button)
-    ImageView mReturnButton;
+    @BindView(R.id.meeting_return_button) ImageView mReturnButton;
 
-    @BindView(R.id.meeting_topic)
-    EditText topic;
+    @BindView(R.id.meeting_topic) EditText topic;
     @BindView(R.id.meeting_guests) EditText guests;
     @BindView(R.id.meeting_date) EditText date;
     @BindView(R.id.meeting_start_time) EditText startTime;
     @BindView(R.id.meeting_end_time) EditText endTime;
 
-    @BindView(R.id.meeting_add_button)
-    Button addButton;
+    @BindView(R.id.meeting_add_button) Button addButton;
     @BindView(R.id.date_btn)  Button dateBtn;
     @BindView(R.id.start_time_btn)  Button startTimeBtn;
     @BindView(R.id.end_time_btn)  Button endTimeBtn;
 
-    @BindView(R.id.meeting_room)
-    Spinner room;
-    @BindView(R.id.meeting_color)
-    ImageButton colorButton;
+    @BindView(R.id.meeting_room)  Spinner room;
+    @BindView(R.id.meeting_color) ImageButton colorButton;
     private int mColor = 0;
 
     private int mYear, mMonth, mDay, mHour, mMinute;
 
     private ApiService mApiService;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meeting);
         ButterKnife.bind(this);
+        mApiService = DI.getApiService();
 
         //Room
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,

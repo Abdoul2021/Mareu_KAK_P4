@@ -18,18 +18,12 @@ import butterknife.ButterKnife;
 public class MeetingDetailsActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.return_button)
-    ImageView mReturnButton;
-    @BindView(R.id.detail_topic)
-    TextView mTopic;
-    @BindView(R.id.detail_room)
-    TextView mRoom;
-    @BindView(R.id.detail_date)
-    TextView mDate;
-    @BindView(R.id.detail_meet_time)
-    TextView mMeetTime;
-    @BindView(R.id.detail_guests)
-    TextView mGuests;
+    @BindView(R.id.return_button) ImageView mReturnButton;
+    @BindView(R.id.detail_topic)  TextView mTopic;
+    @BindView(R.id.detail_room)  TextView mRoom;
+    @BindView(R.id.detail_date)  TextView mDate;
+    @BindView(R.id.detail_meet_time)  TextView mMeetTime;
+    @BindView(R.id.detail_guests) TextView mGuests;
 
     private Meeting mMeeting;
     private ApiService mApiService;
