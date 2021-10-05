@@ -36,25 +36,25 @@ import butterknife.OnClick;
 
 public class AddMeetingActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
-    @BindView(R.id.meeting_return_button) ImageView mReturnButton;
-
+    //EditText
     @BindView(R.id.meeting_topic) EditText topic;
     @BindView(R.id.meeting_guests) EditText guests;
     @BindView(R.id.meeting_date) EditText date;
     @BindView(R.id.meeting_start_time) EditText startTime;
     @BindView(R.id.meeting_end_time) EditText endTime;
-
+    //Button
     @BindView(R.id.meeting_add_button) Button addButton;
     @BindView(R.id.date_btn)  Button dateBtn;
     @BindView(R.id.start_time_btn)  Button startTimeBtn;
     @BindView(R.id.end_time_btn)  Button endTimeBtn;
-
+    @BindView(R.id.meeting_return_button) ImageView mReturnButton;
+    //Spinner
     @BindView(R.id.meeting_room)  Spinner room;
+    //ImageButton
     @BindView(R.id.meeting_color) ImageButton colorButton;
+    //Declaration
     private int mColor = 0;
-
     private int mYear, mMonth, mDay, mHour, mMinute;
-
     private ApiService mApiService;
 
     @Override
@@ -64,7 +64,7 @@ public class AddMeetingActivity extends AppCompatActivity implements View.OnClic
         ButterKnife.bind(this);
         mApiService = DI.getApiService();
 
-        //Room
+        //Room (spinner)
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.room_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -90,6 +90,7 @@ public class AddMeetingActivity extends AppCompatActivity implements View.OnClic
 
         //Button (add a meeting)
         addButton.setOnClickListener(v -> createMeeting());
+
         //Button (add date and time)
         dateBtn.setOnClickListener(this);
         startTimeBtn.setOnClickListener(this);
@@ -221,6 +222,5 @@ public class AddMeetingActivity extends AppCompatActivity implements View.OnClic
         Toast.makeText(getApplicationContext(), "La réunion a été ajoutée", Toast.LENGTH_SHORT).show();
         finish();
     }
-
 
 }

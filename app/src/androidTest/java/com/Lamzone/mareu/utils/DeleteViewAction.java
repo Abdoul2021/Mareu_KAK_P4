@@ -1,9 +1,11 @@
-package com.Lamzone.mareu;
+package com.Lamzone.mareu.utils;
 
 import android.view.View;
 
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
+
+import com.Lamzone.mareu.R;
 
 import org.hamcrest.Matcher;
 

@@ -42,4 +42,7 @@ public interface ApiService {
      */
 
     List<Meeting> getMeetingByDate(String date);
+
+    void resetFilter();
 }
+

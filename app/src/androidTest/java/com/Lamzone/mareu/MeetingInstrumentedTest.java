@@ -10,7 +10,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static com.Lamzone.mareu.RecyclerViewItemCountAssertion.withItemCount;
+import static com.Lamzone.mareu.utils.RecyclerViewItemCountAssertion.withItemCount;
 
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;
@@ -19,6 +19,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.Lamzone.mareu.ui.MainActivity;
+import com.Lamzone.mareu.utils.DeleteViewAction;
 
 import org.junit.Rule;
 import org.junit.Test;

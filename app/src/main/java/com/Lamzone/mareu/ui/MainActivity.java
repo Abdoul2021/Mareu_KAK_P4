@@ -31,19 +31,20 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.recyclerview)
-    RecyclerView recyclerView;
-    @BindView(R.id.add_meeting_activity)
-    FloatingActionButton addMeetingButton;
-    @BindView(R.id.refresh)
-    SwipeRefreshLayout refresh;
+    @BindView(R.id.recyclerview) RecyclerView recyclerView;
+    @BindView(R.id.add_meeting_activity) FloatingActionButton addMeetingButton;
+    @BindView(R.id.refresh) SwipeRefreshLayout refresh;
+
+    //Declaration
+    private Configuration def;
+    private String location;
+
+    //Initialisation
     private ArrayList<Meeting> mMeetings = new ArrayList<>();
     private ApiService mApiService = DI.getApiService();
-    private Configuration def;
     MeetingAdapter mAdapter = new MeetingAdapter(mMeetings, this);
     private static final String[] rooms = new String[]{"Salle UN", "Salle DEUX", "Salle TROIS", "Salle QUATRE", "Salle CINQ", "Salle SIX", "Salle SEPT", "Salle HUIT", "Salle NEUF", "Salle DIX"
     };
-    private String location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
         defineSwipeRefreshLayout();
         def = getResources().getConfiguration();
         landscape();
-        // Adding a meeting
+
+    // Button for adding a meeting
         addMeetingButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, AddMeetingActivity.class)));
     }
 
@@ -63,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
     private void defineSwipeRefreshLayout() {
         refresh.setOnRefreshListener(() -> resetFilter(mApiService.getMeetings()));
     }
-
 
     //RecyclerView
     private void defineRecyclerView() {
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
+        //Filter by room
     public void roomFilter(MenuItem Item) {
         int chosenRoom = -1;
         MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(this)
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 .setSingleChoiceItems(rooms, chosenRoom, (dialog, which) -> location = rooms[which]);
         materialAlertDialogBuilder.show();
     }
-
+        //Filter by date
     public void dateFilter(MenuItem Item) {
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         resetFilter(mApiService.getMeetings());
     }
-
+    //Remove filter
     public void noFilter(MenuItem Item) {
         resetFilter(mApiService.getMeetings());
     }

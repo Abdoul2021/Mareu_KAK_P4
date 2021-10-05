@@ -3,6 +3,9 @@ package com.Lamzone.mareu.di;
 import com.Lamzone.mareu.service.ApiService;
 import com.Lamzone.mareu.service.DummyApiService;
 
+/**
+ * Dependency injector to get instance of services
+ */
 public class DI {
     private static ApiService service = new DummyApiService();
 

@@ -1,4 +1,4 @@
-package com.Lamzone.mareu;
+package com.Lamzone.mareu.utils;
 
 import android.view.View;
 

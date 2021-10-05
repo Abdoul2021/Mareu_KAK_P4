@@ -46,6 +46,7 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.ViewHold
         return new ViewHolder(view);
     }
 
+    //Color
     public int getColor(int color) {
         if (color == 1) { return R.drawable.ic_baseline_circle_blanc;
         } else if (color == 2) { return R.drawable.ic_baseline_circle_bleu ;
@@ -71,6 +72,8 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.ViewHold
         holder.mStartTime.setText("De " + meeting.getStartTime());
         holder.mEndTime.setText("à " + meeting.getEndTime());
         holder.mGuests.setText(meeting.getGuests());
+
+        //Delete a meeting
         holder.mDeleteButton.setOnClickListener(v -> {
             Meetings.remove(meeting);
             apiService.deleteMeeting(meeting);

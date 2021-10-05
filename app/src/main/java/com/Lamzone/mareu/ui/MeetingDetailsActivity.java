@@ -17,7 +17,6 @@ import butterknife.ButterKnife;
 
 public class MeetingDetailsActivity extends AppCompatActivity {
 
-
     @BindView(R.id.return_button) ImageView mReturnButton;
     @BindView(R.id.detail_topic)  TextView mTopic;
     @BindView(R.id.detail_room)  TextView mRoom;
@@ -25,6 +24,7 @@ public class MeetingDetailsActivity extends AppCompatActivity {
     @BindView(R.id.detail_meet_time)  TextView mMeetTime;
     @BindView(R.id.detail_guests) TextView mGuests;
 
+    //Declaration
     private Meeting mMeeting;
     private ApiService mApiService;
 
@@ -37,13 +37,13 @@ public class MeetingDetailsActivity extends AppCompatActivity {
         int position = getIntent().getIntExtra("position", 0);
         mApiService = DI.getApiService();
 
+        //Detail
         mMeeting = mApiService.getMeetingByPosition(position);
         mTopic.setText(mMeeting.getTopic());
         mRoom.setText(mMeeting.getRoom());
         mDate.setText(mMeeting.getDate());
         mMeetTime.setText(mMeeting.getStartTime() + " à " + mMeeting.getEndTime());
         mGuests.setText(mMeeting.getGuests());
-
 
         //Return button
         mReturnButton.setOnClickListener(v -> {

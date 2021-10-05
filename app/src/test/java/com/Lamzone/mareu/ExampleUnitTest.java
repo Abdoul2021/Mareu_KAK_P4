@@ -63,7 +63,7 @@ public class ExampleUnitTest {
     //Filter meetings by room with success
     @Test
     public void filterByRoomMeetingsWithSuccess() {
-        Meeting mareu_salle = new Meeting(0xffffff00, "Mareu_date", "Salle UN", "7/8/2021", "14:30", "15:30", "zip@gmail.com ; zap@live.fr ; zia@gmail.com ; ");
+        Meeting mareu_salle = new Meeting(0xffffff00, "Mareu_salle", "Salle UN", "7/8/2021", "14:30", "15:30", "zip@gmail.com ; zap@live.fr ; zia@gmail.com ; ");
         service.createMeeting(mareu_salle);
         assertTrue(service.getMeetingByRoom(mareu_salle.getRoom()).contains(mareu_salle));
     }
@@ -74,6 +74,19 @@ public class ExampleUnitTest {
         Meeting mareu_date = new Meeting(0xffffff00, "Mareu_date", "Salle UN", "8/8/2021", "14:30", "15:30", "zip@gmail.com ; zap@live.fr ; zia@gmail.com ; " );
         service.createMeeting(mareu_date);
         assertTrue(service.getMeetingByDate(mareu_date.getDate()).contains(mareu_date));
+    }
+
+    //Reset filter with success
+    @Test
+    public void resetFilterWithSuccess() {
+        Meeting mareu_date = new Meeting(0xffffff00, "Mareu_date", "Salle UN", "8/8/2021", "14:30", "15:30", "zip@gmail.com ; zap@live.fr ; zia@gmail.com ; " );
+        service.createMeeting(mareu_date);
+        Meeting mareu_salle = new Meeting(0xffffff00, "Mareu_salle", "Salle UN", "7/8/2021", "14:30", "15:30", "zip@gmail.com ; zap@live.fr ; zia@gmail.com ; ");
+        service.createMeeting(mareu_salle);
+        service.resetFilter();
+        assertFalse(service.getMeetingByRoom(mareu_salle.getRoom()).contains(mareu_salle));
+        assertFalse(service.getMeetingByDate(mareu_date.getDate()).contains(mareu_date));
+
     }
 
 }
