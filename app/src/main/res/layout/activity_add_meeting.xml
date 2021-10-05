@@ -30,7 +30,8 @@
             android:id="@+id/meeting_color"
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:background="#19C120"/>
 
         <Spinner
             android:id="@+id/meeting_room"
@@ -65,7 +66,7 @@
                 android:id="@+id/date_btn"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="#B1B0AB"
+                android:backgroundTint="#19C120"
                 android:drawableBottom="@drawable/ic_baseline_ads_click_24" />
 
         </LinearLayout>
@@ -88,7 +89,7 @@
                 android:id="@+id/start_time_btn"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="#B1B0AB"
+                android:backgroundTint="#19C120"
                 android:drawableBottom="@drawable/ic_baseline_ads_click_24" />
 
             <EditText
@@ -104,7 +105,7 @@
                 android:id="@+id/end_time_btn"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="#B1B0AB"
+                android:backgroundTint="#19C120"
                 android:drawableBottom="@drawable/ic_baseline_ads_click_24" />
         </LinearLayout>
 
@@ -126,7 +127,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginEnd="80dp"
             android:layout_marginBottom="50dp"
-            android:backgroundTint="#B1B0AB"
+            android:backgroundTint="#19C120"
             android:enabled="true"
             android:hint="Ajouter la réunion"
             android:textSize="18sp"
